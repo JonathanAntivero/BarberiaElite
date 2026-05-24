@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería Elite - Cortes Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .stripe {
+            height: 6px;
+            background: linear-gradient(90deg, #dc143c 0%, #ffffff 50%, #dc143c 100%);
+            width: 200px;
+            margin: 15px auto;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .info-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .info-text h2 {
+            color: #001f3f;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 5px solid #dc143c;
+            padding-left: 15px;
+        }
+
+        .info-text p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .servicios {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .servicios h3 {
+            color: #dc143c;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .servicios ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .servicios li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .servicios li:before {
+            content: "✂";
+            position: absolute;
+            left: 0;
+            color: #dc143c;
+            font-weight: bold;
+        }
+
+        .mapa-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            height: 400px;
+        }
+
+        .mapa-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .contacto-section {
+            background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+
+        .contacto-section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contacto-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 600px) {
+            .contacto-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contacto-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contacto-item h3 {
+            color: #dc143c;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .contacto-item p {
+            font-size: 1.1em;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .horarios {
+            max-width: 400px;
+            margin: 30px auto;
+        }
+
+        .horarios h3 {
+            color: #dc143c;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .horario-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .horario-item:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            background: #001f3f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Barbería Elite</h1>
+        <p>Cortes Premium & Estilo</p>
+        <div class="stripe"></div>
+    </header>
+
+    <main>
+        <section class="info-section">
+            <div class="info-text">
+                <h2>¡Bienvenido!</h2>
+                <p>Somos una barbería moderna especializada en cortes de calidad, afeitados clásicos y cuidado de la barba con productos premium.</p>
+                <p>Nuestro equipo de barberos profesionales te ofrece un servicio personalizado en un ambiente acogedor y relajante.</p>
+
+                <div class="servicios">
+                    <h3>Nuestros Servicios</h3>
+                    <ul>
+                        <li>Cortes modernos y clásicos</li>
+                        <li>Afeitado tradicional</li>
+                        <li>Cuidado y diseño de barba</li>
+                        <li>Tinte de barba y cabello</li>
+                        <li>Tratamientos capilares</li>
+                        <li>Cortes infantiles</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7234567890!2d-74.12345678!3d4.72345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f1234567890ab%3A0x1234567890abcdef!2sCarrera%20127%23%2365a-60!5e0!3m2!1ses!2sco!4v1234567890123" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <section class="contacto-section">
+            <h2>Contactanos</h2>
+
+            <div class="contacto-info">
+                <div class="contacto-item">
+                    <h3>📍 Ubicación</h3>
+                    <p>Carrera 127 #65a-60</p>
+                </div>
+                <div class="contacto-item">
+                    <h3>📱 WhatsApp</h3>
+                    <p>+57 315 1123003</p>
+                </div>
+            </div>
+
+            <div class="horarios">
+                <h3>Horarios de Atención</h3>
+                <div class="horario-item">
+                    <span>Lunes - Viernes</span>
+                    <span>8:00 AM - 7:00 PM</span>
+                </div>
+                <div class="horario-item">
+                    <span>Sábado</span>
+                    <span>8:00 AM - 6:00 PM</span>
+                </div>
+            </div>
+
+            <a href="https://wa.me/573151123003?text=Hola%20Barbería%20Elite,%20quiero%20agendar%20mi%20cita" class="whatsapp-btn">💬 Chatea con nosotros</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Barbería Elite. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
